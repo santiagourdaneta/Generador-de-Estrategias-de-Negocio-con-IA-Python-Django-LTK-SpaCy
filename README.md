@@ -1,91 +1,85 @@
+# Generador de Estrategias de Negocio Inteligente con IA
 
-Este proyecto es un generador de estrategias de negocio inteligente diseñado para pequeñas y medianas empresas (PYMES). Utiliza Django como un backend robusto para manejar toda la lógica, la base de datos y la interfaz de usuario.
+## 💡 Descripción del Proyecto
 
-Características Principales
-Generación Inteligente de Estrategias: Utiliza la descripción del negocio, el sector, el tamaño y los recursos disponibles para generar estrategias personalizadas de marketing, ventas, operaciones o digital.
-PLN Básico: Emplea librerías como NLTK y SpaCy para extraer palabras clave y realizar un análisis de "sentimiento" básico, adaptando las estrategias a desafíos o fortalezas detectadas.
-Lógica Basada en Reglas: Un motor de reglas interno que define estrategias específicas para diferentes sectores y escenarios de negocio.
-Gestión de Estrategias: Guarda las estrategias generadas en una base de datos para su consulta posterior.
-Interfaz de Usuario Simple: La interfaz de usuario se renderiza directamente desde las plantillas de Django, usando HTML, CSS y JavaScript básico para la interactividad.
-Validaciones Robustas: Incluye validaciones tanto en el frontend (JavaScript) para feedback instantáneo, como en el backend (formularios de Django) para garantizar la integridad de los datos.
-SEO Básico: Configuración de django.contrib.sitemaps para una mejor indexación por motores de búsqueda.
-Seeder de Datos: Incluye un comando de gestión de Django para poblar rápidamente la base de datos con datos de ejemplo para desarrollo y pruebas.
+Este proyecto es una plataforma web desarrollada en Django que funciona como un **Generador de Estrategias de Negocio Inteligente**, diseñado específicamente para pequeñas y medianas empresas (PYMES). La aplicación recibe información clave del negocio (sector, tamaño, recursos y descripción) y utiliza técnicas de Procesamiento de Lenguaje Natural (PLN) y un motor de reglas interno para generar estrategias de negocio personalizadas (marketing, ventas, operaciones o digital).
 
-Requisitos
-Python 3.8+
-pip (Administrador de paquetes de Python)
+El objetivo es democratizar la planificación estratégica, proporcionando un borrador de plan de acción basado en análisis de datos básicos y lógica de negocio.
 
-Configuración y Ejecución
+## ✨ Características Principales
+
+* **Generación Personalizada:** Produce estrategias adaptadas al sector y los recursos disponibles de la empresa.
+* **Análisis con PLN:** Emplea las librerías **NLTK** y **SpaCy** para extraer palabras clave y realizar un análisis de "sentimiento" (básico), ajustando las recomendaciones estratégicas.
+* **Motor de Reglas:** Lógica interna robusta que define estrategias específicas para diferentes escenarios y verticales de negocio.
+* **Gestión de Datos:** Utiliza Django para manejar la persistencia de las estrategias generadas en una base de datos.
+* **Interfaz Simple:** Interfaz de usuario intuitiva renderizada directamente con plantillas de Django (HTML/CSS/JS).
+* **Integridad y SEO:** Incluye validaciones en backend y frontend, además de configuración básica de SEO (sitemaps).
+* **Seeder de Datos:** Comando de gestión de Django para poblar rápidamente la base de datos con información de ejemplo.
+
+## 🛠️ Tecnologías Utilizadas
+
+| Categoría | Tecnología | Propósito |
+| :--- | :--- | :--- |
+| **Backend** | Python | Lenguaje principal de programación. |
+| **Framework** | Django | Marco de desarrollo web robusto y seguro. |
+| **PLN** | NLTK & SpaCy | Procesamiento de texto, extracción de entidades y análisis básico de contexto. |
+| **Base de Datos** | SQLite3 | Base de datos por defecto para el desarrollo. |
+
+## ⚙️ Configuración y Ejecución
+
 Sigue estos pasos para poner en marcha el proyecto:
 
-1. Clonar el Repositorio (si aplica)
-Bash
+### Requisitos
 
-git clone https://github.com/santiagourdaneta/Generador-de-Estrategias-de-Negocio-con-IA-Django-/
-cd Generador-de-Estrategias-de-Negocio-con-IA-Django-
+* Python 3.8+
+* pip
 
-2. Configuración del Backend (Django)
-Crear y Activar Entorno Virtual:
+### 1. Clonar el Repositorio
 
-Bash
+```bash
+git clone [https://github.com/santiagourdaneta/Generador-de-Estrategias-de-Negocio-con-IA-Python-Django-LTK-SpaCy](https://github.com/santiagourdaneta/Generador-de-Estrategias-de-Negocio-con-IA-Python-Django-LTK-SpaCy)
+cd Generador-de-Estrategias-de-Negocio-con-IA-Python-Django-LTK-SpaCy
 
+2. Configuración del Entorno
+
+# Crear entorno virtual
 python -m venv venv
-# En Windows:
-.\venv\Scripts\activate
-# En macOS/Linux:
-source venv/bin/activate
 
-Instalar Dependencias de Python:
+# Activar entorno virtual
+# En Windows: .\venv\Scripts\activate
+# En macOS/Linux: source venv/bin/activate
 
-Bash
-
+# Instalar dependencias
 pip install -r requirements.txt
 
-Descargar Modelos de PLN (NLTK y SpaCy):
-
-Bash
+3. Descargar Modelos de PLN
+Es necesario descargar los modelos lingüísticos para NLTK y SpaCy:
 
 python -m spacy download es_core_news_sm
 python -c "import nltk; nltk.download('punkt'); nltk.download('stopwords')"
 
-Realizar Migraciones de Base de Datos:
+4. Base de Datos y Superusuario
 
-Bash
-
+# Realizar migraciones
 python manage.py makemigrations
 python manage.py migrate
 
-Crear un Superusuario (Opcional, para acceder al Admin de Django):
-
-Bash
-
+# (Opcional) Crear superusuario para el Admin de Django
 python manage.py createsuperuser
 
-Sembrar Datos de Ejemplo (Opcional, pero recomendado para desarrollo):
-
-Bash
-
+# (Opcional) Poblar con datos de ejemplo
 python manage.py seed_db
 
-Ejecutar el Servidor de Django
-Asegúrate de que tu entorno virtual esté activado.
-Navega al Directorio Raíz del Proyecto (Generador-de-Estrategias-de-Negocio-con-IA-Django-/ donde está manage.py).
-Iniciar el Servidor de Django:
-Bash
+5. Iniciar el Servidor
 
 python manage.py runserver
-El servidor de Django se ejecutará en http://127.0.0.1:8000/.
 
-Uso de la Aplicación
-Acceder a la Aplicación: Abre tu navegador y ve a http://127.0.0.1:8000/. Serás redirigido a la página para generar estrategias.
-Generar una Estrategia: Rellena el formulario con la información de la empresa y haz clic en "Generar Estrategia".
-Ver Estrategias Guardadas: Navega a http://127.0.0.1:8000/estrategias/lista/ para ver el historial de estrategias generadas.
-Administración de Django: Accede al panel de administración en http://127.0.0.1:8000/admin/ (usando el superusuario que creaste) para gestionar los modelos de Empresa y Estrategia.
+El servidor estará disponible en http://127.0.0.1:8000/.
 
-Próximos Pasos y Mejoras (Roadmap)
-Interfaz de Usuario Mejorada: Aunque no se usa un framework de JS, se puede mejorar el HTML/CSS/JS de las plantillas de Django para una experiencia más rica y responsiva.
-Autenticación de Usuarios: Implementar un sistema de registro y login para usuarios.
-Modelos de IA/ML Avanzados: Explorar la integración con APIs de modelos de lenguaje grandes (LLMs) como Google Gemini o OpenAI (con un plan de uso adecuado) para una generación de estrategias más sofisticada.
-Dashboard de Usuario: Una interfaz personalizada para que los usuarios gestionen sus empresas y estrategias guardadas.
-Exportación de Estrategias: Funcionalidad para exportar estrategias en PDF o DOCX.
-Historial de Cambios: Permitir a los usuarios editar y guardar diferentes versiones de una estrategia.
+⏭️ Próximos Pasos (Roadmap)
+
+Integración con modelos de lenguaje grandes (LLMs) como Gemini para estrategias más sofisticadas.
+Implementación de autenticación de usuarios.
+Funcionalidad de exportación de estrategias a PDF/DOCX.
+Mejoras en la experiencia del usuario (UX/UI) del dashboard.
+
